@@ -3,6 +3,7 @@ package com.galaxyt.capricorn.user.web;
 import com.galaxyt.capricorn.common.model.dto.ReturnValueLoader;
 import com.galaxyt.capricorn.user.enums.UserAvailable;
 import com.galaxyt.capricorn.user.model.entity.User;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
