@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * 线程池
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolTest1 {
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
 
         //创建一个固定大小的线程池，当线程数量超过指定数量，超出的线程会放到一个队列中去等待处理
         ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -38,6 +39,25 @@ public class ThreadPoolTest1 {
 
         //设置一个任务，在发布之后5秒开始，每一秒执行一次
         executorService3.scheduleAtFixedRate(() -> System.out.println("..."),5,1, TimeUnit.SECONDS);
+    }
+
+
+    public static void main(String[] args) {
+
+
+
+
+        Executors.newSingleThreadScheduledExecutor(r -> {
+
+            return new Thread(r);
+
+        }).scheduleAtFixedRate(() -> {
+
+            System.out.println(Thread.currentThread().getName());
+
+        },5,5,TimeUnit.SECONDS);
+
+
     }
 
 
